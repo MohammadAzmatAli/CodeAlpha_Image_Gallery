@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery | Md Azmat Ali | CodeAlpha</title>
+
+    <!-- Linking google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Linking boxicons as font for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- Section for previewing the image -->
+    <section class="preview-container">
+        <div class="wrapper">
+            <i class='bx bxs-x-square' id="exit-btn"></i>
+            <div class="details">
+                <i class='bx bx-camera'></i>
+                <span></span>
+            </div>
+            <div class="preview-img">
+                <img src="" alt="previewImage">
+            </div>
+            <button id="download-btn" onclick="downloadImg();">Download now</button>
+        </div>
+    </section>
+
+    <!-- Image filter search section -->
+    <section class="filter-search">
+        <div class="search-section">
+            <h1>Image Gallery</h1>
+            <p>Download high quality images for free (Made using pexels API)</p>
+            <div class="search-input">
+                <input type="search" placeholder="Search free images" id="search-filter">
+                <button id="search-btn">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image gallery section -->
+    <section class="gallery-container">
+        <div class="image-gallery">
+            <ul class="images">
+                <!-- Images will come here as list items (li) with help of javascript from pexels api -->
+            </ul>
+        </div>
+        <button id="load-more">Load more</button>
+    </section>
+</body>
+
+</html>
