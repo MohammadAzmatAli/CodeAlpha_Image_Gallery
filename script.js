@@ -85,7 +85,7 @@ function downloadImg(imageUrl) {
         .then(file => {
             const link = document.createElement("a");
             link.href = URL.createObjectURL(file);
-            link.download = "image.jpeg"; // Set a default filename with extension
+            link.download = "image.jpg"; // Set a default filename with extension
             link.click();
         })
         .catch(() => {
