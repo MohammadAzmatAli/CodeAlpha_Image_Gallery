@@ -20,15 +20,14 @@ function getImages(URL) {
     })
         .then(response => response.json())
         .then((data) => {
-            // Loop for getting the image url and making a image inside li tag
-            for (let i = 0; i < (data.photos).length; i++) {
+            for (let i = 0; i < (data.photos).length; i++) {        // Loop for getting the image url and making a image inside li tag
                 // Creating the html for the photos
-                htmlString += ` <li class="card" onclick="show_preview('${data.photos[i].src.large2x}', '${data.photos[7].photographer}');">
+                htmlString += ` <li class="card" onclick="show_preview('${data.photos[i].src.large2x}', '${data.photos[i].photographer}');">
                 <img src="${data.photos[i].src.large2x}" alt="img">
                 </li>`
             }
-            // Appending the fetched photos to the gallery.
-            document.querySelector('.images').innerHTML += htmlString;
+            console.log(document.querySelector('.images').innerHTML);
+            document.querySelector('.images').innerHTML += htmlString;      // Appending the fetched photos to the gallery.
 
             loadMore.classList.add("enabled");
             loadMore.textContent = "Load More";
@@ -54,10 +53,9 @@ function load_more_function() {
 function getSearchedImages() {
     let target = document.querySelector('#search-filter').value;
     if (target) {
-        let apiURL = `https://api.pexels.com/v1/search?query=${target}?page=${pageNumber}&per_page=${pageSize}`;
+        htmlString = "";
         document.querySelector('.images').innerHTML = "";
-        console.log(document.querySelector('.images').innerHTML);
-        console.log(apiURL);
+        let apiURL = `https://api.pexels.com/v1/search?query=${target}?page=1&per_page=20`;
         getImages(apiURL);
     }
     else {
@@ -88,7 +86,7 @@ function downloadImg(imageUrl) {
         .then(file => {
             const link = document.createElement("a");
             link.href = URL.createObjectURL(file);
-            link.download = new Date().getTime() + ".jpeg"; // Set a default filename with extension
+            link.download = "image.jpeg"; // Set a default filename with extension
             link.click();
         })
         .catch(() => {
