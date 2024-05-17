@@ -26,7 +26,6 @@ function getImages(URL) {
                 <img src="${data.photos[i].src.large2x}" alt="img">
                 </li>`
             }
-            console.log(document.querySelector('.images').innerHTML);
             document.querySelector('.images').innerHTML += htmlString;      // Appending the fetched photos to the gallery.
 
             loadMore.classList.add("enabled");
